@@ -1,9 +1,30 @@
 <template>
-  <div>
-    <h1>Index</h1>
-  </div>
+  <article>
+    <h2>On est qui ?</h2>
+    <Text> Je suis solo pour l'instant</Text>
+  </article>
 </template>
 
+<style scoped lang="scss">
+article {
+  @include flex-center;
+  flex-direction: column;
+  background: $color-blue-dark;
+  height: 40vh;
+  
+  h2 {
+    color: black;
+  }
+  
+  text{
+    color: aliceblue;
+  }
+
+  @include mobile {    
+    padding: 1rem;
+  }
+}
+</style>
 ```
 Contenu :
 - Titre : "Qu'est-ce que Kohikoi ?"

@@ -1,6 +1,8 @@
+
 <template>
-  <div>
-    <h1>Index</h1>
-  </div>
+  <HomeHero />
+  <HomeAbout />
+  <HomeHowToUse />
+  <HomeCategories />
   <Footer />
 </template>

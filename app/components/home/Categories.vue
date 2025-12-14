@@ -1,8 +1,30 @@
 <template>
-  <div>
-    <h1>Index</h1>
-  </div>
+  <article>
+    <h2>Alors les catégories...</h2>
+    <Text> En vrai, il y en a pleins</Text>
+  </article>
 </template>
+
+<style scoped lang="scss">
+article {
+  @include flex-center;
+  flex-direction: column;
+  background: $color-blue-bright;
+  height: 40vh;
+  
+  h2 {
+    color: black;
+  }
+  
+  text{
+    color: aliceblue;
+  }
+
+  @include mobile {    
+    padding: 1rem;
+  }
+}
+</style>
 
 ```
 Contenu :

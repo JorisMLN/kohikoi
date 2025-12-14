@@ -3,7 +3,12 @@
 // ========================================
 
 // Configuration (variables + mixins)
+// Import des pages
+
 @use 'config' as *;
+@use 'home';
+@use 'list';
+@use 'detail';
 
 // Reset CSS basique
 * {
@@ -19,8 +24,3 @@ body {
   background: $color-background;
   line-height: 1.6;
 }
-
-// Import des pages
-@use 'home';
-@use 'list';
-@use 'detail';
