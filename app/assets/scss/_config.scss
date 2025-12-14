@@ -1,0 +1,124 @@
+// ========================================
+// VARIABLES
+// ========================================
+
+// Couleurs Kohikoi
+$color-gold-light: #E8C547;
+$color-gold: #D4AF37;
+$color-gold-dark: #B8941C;
+
+$color-blue-bright: #6BB6FF;
+$color-blue: #4A90E2;
+$color-blue-dark: #2E5C8A;
+
+$color-navy: #1A2332;
+$color-navy-dark: #0F1820;
+
+$color-background: #FAF0E6;  // Linen (chaud, accueillant)
+$color-white: #FFFFFF;
+$color-text: #333333;
+$color-text-light: #666666;
+
+// Typographie
+$font-primary: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+$font-size-base: 16px;
+$font-size-small: 14px;
+$font-size-large: 18px;
+$font-size-h1: 2.5rem;
+$font-size-h2: 2rem;
+$font-size-h3: 1.5rem;
+
+// Espacements
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2rem;
+$spacing-xl: 3rem;
+
+// Breakpoints
+$mobile: 480px;
+$tablet: 768px;
+$desktop: 1024px;
+
+// Border radius
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 12px;
+
+// Shadows
+$shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+$shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+// ========================================
+// MIXINS
+// ========================================
+
+// Flexbox
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Responsive
+@mixin mobile {
+  @media (max-width: #{$mobile}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
+}
+
+// Scrollbar personnalisée
+@mixin custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: $color-background;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: $color-gold;
+    border-radius: 3px;
+    
+    &:hover {
+      background: $color-gold-dark;
+    }
+  }
+  
+  scrollbar-width: thin;
+  scrollbar-color: $color-gold $color-background;
+}
+
+// Hover transition
+@mixin hover-transition {
+  transition: all 0.3s ease;
+  
+  &:hover {
+    @content;
+  }
+}

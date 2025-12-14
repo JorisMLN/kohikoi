@@ -1,0 +1,87 @@
+// ========================================
+// PAGE LISTE DES CAFÉS
+// ========================================
+
+.cafe-list {
+  padding: $spacing-lg;
+  background: $color-background;
+  min-height: 100vh;
+  
+  &__header {
+    margin-bottom: $spacing-lg;
+    
+    h1 {
+      font-size: $font-size-h1;
+      color: $color-navy;
+      margin-bottom: $spacing-sm;
+    }
+    
+    .filter-bar {
+      @include flex-between;
+      gap: $spacing-sm;
+      flex-wrap: wrap;
+      
+      select, input {
+        padding: $spacing-sm;
+        border: 1px solid $color-gold;
+        border-radius: $radius-sm;
+        background: $color-white;
+      }
+    }
+  }
+  
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: $spacing-md;
+    
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .cafe-card {
+    background: $color-white;
+    border-radius: $radius-lg;
+    overflow: hidden;
+    box-shadow: $shadow-sm;
+    cursor: pointer;
+    
+    @include hover-transition {
+      box-shadow: $shadow-lg;
+      transform: translateY(-4px);
+    }
+    
+    &__image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background: $color-navy-dark;
+    }
+    
+    &__content {
+      padding: $spacing-md;
+      
+      h3 {
+        font-size: $font-size-h3;
+        color: $color-navy;
+        margin-bottom: $spacing-xs;
+      }
+      
+      .category {
+        display: inline-block;
+        padding: $spacing-xs $spacing-sm;
+        background: $color-gold-light;
+        color: $color-navy;
+        border-radius: $radius-sm;
+        font-size: $font-size-small;
+        margin-bottom: $spacing-sm;
+      }
+      
+      .location {
+        color: $color-text-light;
+        font-size: $font-size-small;
+      }
+    }
+  }
+}

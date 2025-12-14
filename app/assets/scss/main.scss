@@ -1,0 +1,26 @@
+// ========================================
+// KOHIKOI - Main SCSS
+// ========================================
+
+// Configuration (variables + mixins)
+@use 'config' as *;
+
+// Reset CSS basique
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-primary;
+  font-size: $font-size-base;
+  color: $color-text;
+  background: $color-background;
+  line-height: 1.6;
+}
+
+// Import des pages
+@use 'home';
+@use 'list';
+@use 'detail';
