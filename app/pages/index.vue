@@ -1,8 +1,4 @@
 
 <template>
-  <HomeHero />
-  <HomeAbout />
-  <HomeHowToUse />
-  <HomeCategories />
-  <Footer />
+  <Hero />
 </template>

@@ -1,29 +1,41 @@
 <template>
-  <article>
-    <h2>Alors les catégories...</h2>
-    <Text> En vrai, il y en a pleins</Text>
-  </article>
+  <nav>
+    <ul>
+      <li>cat1</li>
+      <li>cat1</li>
+      <li>cat1</li>
+      <li>cat1</li>
+      <li>cat1</li>
+      <li>cat1</li>
+      <li>cat1</li>
+    </ul>
+  </nav>
 </template>
 
 <style scoped lang="scss">
-article {
+
+nav{
   @include flex-center;
   flex-direction: column;
-  background: $color-blue-bright;
+  background: $color-background;
   height: 40vh;
-  
-  h2 {
-    color: black;
-  }
-  
-  text{
-    color: aliceblue;
-  }
+  width: 100%;
 
-  @include mobile {    
-    padding: 1rem;
+  ul{
+    @include flex-center;
+    flex-direction: row;
+    background-color: beige;
+    height: 100%;
+    width: 70%;
+    li{
+      background-color: burlywood;
+      margin: 2px;
+      height: 90%;
+      width: 10%;
+    }
   }
 }
+
 </style>
 
 ```

@@ -9,7 +9,7 @@
 article {
   @include flex-center;
   flex-direction: column;
-  background: $color-blue-dark;
+  background: $color-background;
   height: 40vh;
   
   h2 {

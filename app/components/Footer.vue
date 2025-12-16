@@ -8,7 +8,7 @@
 footer {
   @include flex-center;
   flex-direction: row;
-  background: grey;
+  background: $color-blue-dark;
   height: 20vh;
 
   text{

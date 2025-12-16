@@ -1,11 +1,8 @@
 <template>
   <container class="container">
     <h1>コーヒー恋 Kohikoi</h1>
-    <h2>"Découvrez les meilleurs cafés du Japon"</h2>
+    <h2>"日本の最高のカフェを発見 !"</h2>
     <div class="buttonStack">
-      <button>Sign In</button>
-      <button>Log in</button>
-      <button>Continue without account</button>
       <NuxtLink to="/cafes" class="cta-button">Cafés</NuxtLink>
     </div>
   </container>
@@ -15,11 +12,11 @@
 .container {
   @include flex-center;
   flex-direction: column;
-  background: $color-navy-dark;
+  background: white;
   height: 100vh;
 
   h1{
-    color: $color-background
+    color: $color-navy-dark
   }
 
   h2{
@@ -43,6 +40,7 @@
   color: black;
   text-decoration: none;
   border-radius: 8px;
+  margin: 5px;
   
   &:hover {
     background: $color-text-light;
