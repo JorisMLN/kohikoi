@@ -1,5 +1,31 @@
+<script setup>
+  import { useCategoriesStore } from '~/stores/categories'
+
+  const categoriesStore = useCategoriesStore()
+  const categories = computed(() => categoriesStore.allCategories)
+</script>
+
 <template>
-  <nav>
+
+  <section class="categories">
+    <h2>7 types de cafés japonais</h2>
+    
+    <div class="grid">
+      <NuxtLink 
+        v-for="cat in categories" 
+        :key="cat.slug"
+        :to="`/categories/${cat.slug}`"
+        class="category-card"
+      >
+        <span class="icon">{{ cat.icon }}</span>
+        <h3>{{ cat.name }}</h3>
+        <p class="name-ja">{{ cat.name_ja }}</p>
+        <p class="description">{{ cat.description }}</p>
+      </NuxtLink>
+    </div>
+  </section>
+
+  <!-- <nav>
     <ul>
       <li>cat1</li>
       <li>cat1</li>
@@ -9,7 +35,7 @@
       <li>cat1</li>
       <li>cat1</li>
     </ul>
-  </nav>
+  </nav> -->
 </template>
 
 <style scoped lang="scss">
