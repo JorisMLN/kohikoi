@@ -6,11 +6,8 @@
 </script>
 
 <template>
-
-  <section class="categories">
-    <h2>7 types de cafés japonais</h2>
-    
-    <div class="grid">
+  <nav>
+    <ul>
       <NuxtLink 
         v-for="cat in categories" 
         :key="cat.slug"
@@ -18,24 +15,13 @@
         class="category-card"
       >
         <span class="icon">{{ cat.icon }}</span>
-        <h3>{{ cat.name }}</h3>
+        <!-- <h3>{{ cat.name }}</h3>
         <p class="name-ja">{{ cat.name_ja }}</p>
-        <p class="description">{{ cat.description }}</p>
+        <p class="description">{{ cat.description }}</p> -->
       </NuxtLink>
-    </div>
-  </section>
-
-  <!-- <nav>
-    <ul>
-      <li>cat1</li>
-      <li>cat1</li>
-      <li>cat1</li>
-      <li>cat1</li>
-      <li>cat1</li>
-      <li>cat1</li>
-      <li>cat1</li>
     </ul>
-  </nav> -->
+  </nav>
+  <NuxtLink to="/cafes" class="cta-button">Cafés</NuxtLink>
 </template>
 
 <style scoped lang="scss">
@@ -53,12 +39,25 @@ nav{
     background-color: beige;
     height: 100%;
     width: 70%;
-    li{
+    .category-card{
       background-color: burlywood;
       margin: 2px;
       height: 90%;
       width: 10%;
     }
+  }
+}
+
+.cta-button {
+  padding: 1rem 2rem;
+  background: $color-background;
+  color: black;
+  text-decoration: none;
+  border-radius: 8px;
+  margin: 5px;
+  
+  &:hover {
+    background: $color-text-light;
   }
 }
 
