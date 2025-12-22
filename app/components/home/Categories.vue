@@ -21,7 +21,6 @@
       </NuxtLink>
     </ul>
   </nav>
-  <NuxtLink to="/cafes" class="cta-button">Cafés</NuxtLink>
 </template>
 
 <style scoped lang="scss">

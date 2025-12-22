@@ -1,6 +1,7 @@
 <template>
   <container class="container">
     LOGO
+    <NuxtLink to="/" class="cta-button">Cafés</NuxtLink>
   </container>
 </template>
 

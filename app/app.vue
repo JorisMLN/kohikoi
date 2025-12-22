@@ -3,8 +3,6 @@
     <div class="leftContainer">
         <HomeLogo/>
         <HomeCategories />
-        <HomeAbout />
-        <HomeHowToUse />
         <Footer />
     </div>
     <div class="rightContainer">

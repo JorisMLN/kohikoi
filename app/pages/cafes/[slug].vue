@@ -19,11 +19,7 @@ if (!cafe.value) {
   <div class="cafe-detail">
     <!-- Breadcrumb / Navigation -->
     <div class="cafe-detail__breadcrumb">
-      <NuxtLink to="/" class="breadcrumb-link">Accueil</NuxtLink>
-      <span class="breadcrumb-separator">/</span>
-      <NuxtLink to="/cafes" class="breadcrumb-link">Cafés</NuxtLink>
-      <span class="breadcrumb-separator">/</span>
-      <span class="breadcrumb-current">{{ cafe.name }}</span>
+      <NuxtLink :to="`/categories/${category?.slug}`" class="cta-button"> Back </NuxtLink>
     </div>
 
     <!-- Container principal -->
@@ -121,23 +117,17 @@ if (!cafe.value) {
     font-size: 0.9rem;
     color: $color-text-light;
     
-    .breadcrumb-link {
-      color: $color-navy;
+    .cta-button {
+      padding: 1rem 2rem;
+      background: $color-background;
+      color: black;
       text-decoration: none;
-      transition: color 0.3s;
-      
+      border-radius: 8px;
+      margin: 5px;
+  
       &:hover {
-        color: $color-gold;
+        background: $color-text-light;
       }
-    }
-    
-    .breadcrumb-separator {
-      margin: 0 0.5rem;
-      color: $color-text-light;
-    }
-    
-    .breadcrumb-current {
-      color: $color-text;
     }
   }
   

@@ -22,8 +22,8 @@ defineProps({
     
     <div class="cafe-card__content">
       <div class="cafe-card__header">
-        <h3 class="cafe-card__name">{{ cafe.name }}</h3>
-        <p class="cafe-card__name-ja">{{ cafe.name_ja }}</p>
+        <h3 class="cafe-card__name">{{ cafe.name_ja }}</h3>
+        <p class="cafe-card__name-ja">{{ cafe.name }}</p>
       </div>
       
       <p class="cafe-card__description">

@@ -38,20 +38,13 @@ const filteredCafes = computed(() => {
 
 <template>
   <div class="category-page">
-    
-    <!-- Breadcrumb -->
-    <nav class="breadcrumb">
-      <NuxtLink to="/" class="breadcrumb__link">Accueil</NuxtLink>
-      <span class="breadcrumb__separator">/</span>
-      <span class="breadcrumb__current">{{ category.name }}</span>
-    </nav>
 
     <!-- Hero de la catégorie -->
     <header class="category-hero">
       <div class="category-hero__content">
         <span class="category-hero__icon">{{ category.icon }}</span>
-        <h1 class="category-hero__title">{{ category.name }}</h1>
-        <p class="category-hero__subtitle">{{ category.name_ja }}</p>
+        <h1 class="category-hero__title">{{ category.name_ja }}</h1>
+        <p class="category-hero__subtitle">{{ category.name }}</p>
         <p class="category-hero__description">{{ category.description }}</p>
       </div>
     </header>
@@ -112,35 +105,6 @@ const filteredCafes = computed(() => {
   background: $color-background;
   display: flex;
   flex-direction: column;
-}
-
-// === BREADCRUMB ===
-.breadcrumb {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 1rem;
-  font-size: 0.9rem;
-  width: 100%;
-  
-  &__link {
-    color: $color-navy;
-    text-decoration: none;
-    transition: color 0.3s;
-    
-    &:hover {
-      color: $color-gold;
-    }
-  }
-  
-  &__separator {
-    margin: 0 0.5rem;
-    color: $color-text-light;
-  }
-  
-  &__current {
-    color: $color-text;
-    font-weight: 500;
-  }
 }
 
 // === HERO CATÉGORIE ===
