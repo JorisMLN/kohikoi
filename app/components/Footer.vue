@@ -8,11 +8,11 @@
 footer {
   @include flex-center;
   flex-direction: row;
-  background: $color-blue-dark;
+  background: white;
   height: 20vh;
 
   text{
-    color: $color-gold-light;
+    color: $color-navy-dark;
   }
   
   @include mobile {    

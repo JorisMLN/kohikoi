@@ -15,9 +15,9 @@
         class="category-card"
       >
         <span class="icon">{{ cat.icon }}</span>
-        <!-- <h3>{{ cat.name }}</h3>
+        <!-- <h3>{{ cat.name }}</h3> -->
         <p class="name-ja">{{ cat.name_ja }}</p>
-        <p class="description">{{ cat.description }}</p> -->
+        <!-- <p class="description">{{ cat.description }}</p>  -->
       </NuxtLink>
     </ul>
   </nav>
@@ -28,14 +28,14 @@
 nav{
   @include flex-center;
   flex-direction: column;
-  background: $color-background;
+  background: white;
   height: 40vh;
   width: 100%;
 
   ul{
     @include flex-center;
     flex-direction: row;
-    background-color: beige;
+    background-color: white;
     height: 100%;
     width: 70%;
     .category-card{
@@ -43,6 +43,10 @@ nav{
       margin: 2px;
       height: 90%;
       width: 10%;
+
+      .name-ja{
+        font-size: 30px;
+      }
     }
   }
 }
