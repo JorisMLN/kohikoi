@@ -47,8 +47,8 @@ if (!cafe.value) {
         
         <!-- Header -->
         <header class="cafe-detail__header">
-          <h1 class="cafe-detail__title">{{ cafe.name }}</h1>
-          <p class="cafe-detail__title-ja">{{ cafe.name_ja }}</p>
+          <h1 class="cafe-detail__title">{{ cafe.name_ja }}</h1>
+          <p class="cafe-detail__title-ja">{{ cafe.name }}</p>
         </header>
 
         <!-- Description -->

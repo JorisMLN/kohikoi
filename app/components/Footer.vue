@@ -1,18 +1,35 @@
 <template>
   <footer>
-    <text>Et ca c'est un footer, reseaux et toussa toussa</text>
+    <div>
+      <Icon class="iconFooter" size="50" name="heroicons:bars-3" />
+      <Icon class="iconFooter" size="50" name="mdi:menu" />
+      <Icon class="iconFooter" size="50" name="heroicons:bars-3" />
+      <Icon class="iconFooter" size="60" name="mdi:close" />
+    </div>
   </footer>
 </template>
 
 <style scoped lang="scss">
 footer {
-  @include flex-center;
-  flex-direction: row;
-  background: white;
-  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: end;
+  height: 30vh;
+  background: url("../assets/images/footer2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;  
 
-  text{
-    color: $color-navy-dark;
+  div{
+    @include flex-center;
+    height: 30%;
+    width: 100%;
+    color: white;
+
+    .iconFooter{
+      margin: 10px;
+    }
   }
   
   @include mobile {    
