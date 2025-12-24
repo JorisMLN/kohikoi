@@ -15,9 +15,6 @@ defineProps({
         :alt="cafe.name"
         class="cafe-card__image"
       />
-      <div class="cafe-card__category-badge">
-        {{ cafe.category }}
-      </div>
     </div>
     
     <div class="cafe-card__content">
@@ -68,7 +65,7 @@ defineProps({
     width: 100%;
     height: 150px;
     overflow: hidden;
-    background: $color-navy-dark;
+    background: white;
   }
   
   &__image {

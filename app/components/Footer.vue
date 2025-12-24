@@ -1,10 +1,7 @@
 <template>
   <footer>
     <div>
-      <Icon class="iconFooter" size="50" name="heroicons:bars-3" />
-      <Icon class="iconFooter" size="50" name="mdi:menu" />
-      <Icon class="iconFooter" size="50" name="heroicons:bars-3" />
-      <Icon class="iconFooter" size="60" name="mdi:close" />
+      <Icon class="iconFooter" size="50" name="healthicons:ui-user-profile" />
     </div>
   </footer>
 </template>
@@ -15,11 +12,11 @@ footer {
   flex-direction: column;
   justify-content: end;
   align-items: end;
-  height: 30vh;
-  background: url("../assets/images/footer2.jpg");
+  height: 20vh;
+  background: url("../assets/images/footer2short.jpg");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;  
+  background-repeat: no-repeat;
 
   div{
     @include flex-center;
@@ -28,7 +25,7 @@ footer {
     color: white;
 
     .iconFooter{
-      margin: 10px;
+      margin-bottom: 20px;
     }
   }
   

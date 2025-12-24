@@ -14,10 +14,7 @@
         :to="`/categories/${cat.slug}`"
         class="category-card"
       >
-        <!-- <span class="icon">{{ cat.icon }}</span> -->
-        <!-- <h3>{{ cat.name }}</h3> -->
         <p class="name-ja">{{ cat.name_ja}}</p>
-        <!-- <p class="description">{{ cat.description }}</p>  -->
       </NuxtLink>
     </ul>
   </nav>
@@ -29,12 +26,12 @@ nav{
   @include flex-center;
   flex-direction: column;
   background: white;
-  height: 30vh;
+  height: 40vh;
   width: 100%;
 
   ul{
-    @include flex-center;
-    flex-direction: row;
+    display: flex;
+    justify-content: center;
     background-color: white;
     height: 100%;
     width: 70%;
@@ -43,7 +40,7 @@ nav{
       writing-mode: vertical-rl;
       text-orientation: upright;
       margin: 2px;
-      height: 90%;
+      height: 50%;
       width: 8%;
       text-decoration: none;
       color: $color-blue-dark;
@@ -53,7 +50,13 @@ nav{
         color: $color-gold-light;
       }
 
+      &.router-link-active {
+        color: $color-gold;
+        font-weight: 600;
+      }
+
       .name-ja{
+        font-family: $font-zen; 
         font-size: 20px;
         font-feature-settings: "vert";
         -webkit-text-orientation: upright;
@@ -80,8 +83,6 @@ nav{
 
 ```
 Contenu :
-- Titre : "7 types de cafés japonais"
-- Grid de 7 cartes catégories :
   → Kissaten
   → Junseikissaten
   → Third Wave

@@ -38,18 +38,6 @@ const filteredCafes = computed(() => {
 
 <template>
   <div class="category-page">
-
-    <!-- Hero de la catégorie -->
-    <header class="category-hero">
-      <div class="category-hero__content">
-        <span class="category-hero__icon">{{ category.icon }}</span>
-        <h1 class="category-hero__title">{{ category.name_ja }}</h1>
-        <p class="category-hero__subtitle">{{ category.name }}</p>
-        <p class="category-hero__description">{{ category.description }}</p>
-      </div>
-    </header>
-
-    <!-- Container principal -->
     <div class="category-container">
       
       <!-- Header avec stats et recherche -->
@@ -107,73 +95,12 @@ const filteredCafes = computed(() => {
   flex-direction: column;
 }
 
-// === HERO CATÉGORIE ===
-.category-hero {
-  background: linear-gradient(135deg, $color-navy 0%, $color-navy-dark 100%);
-  color: white;
-  padding: 2rem 1rem;
-  
-  @include tablet {
-    padding: 2.5rem 2rem;
-  }
-  
-  &__content {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  
-  &__icon {
-    font-size: 2.5rem;
-    display: block;
-    margin-bottom: 0.75rem;
-    
-    @include tablet {
-      font-size: 3rem;
-    }
-  }
-  
-  &__title {
-    font-size: 1.75rem;
-    margin: 0 0 0.5rem 0;
-    font-weight: 700;
-    
-    @include tablet {
-      font-size: 2rem;
-    }
-  }
-  
-  &__subtitle {
-    font-size: 1.1rem;
-    margin: 0 0 0.75rem 0;
-    opacity: 0.85;
-    font-weight: 300;
-    
-    @include tablet {
-      font-size: 1.25rem;
-    }
-  }
-  
-  &__description {
-    font-size: 0.95rem;
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.6;
-    opacity: 0.9;
-    
-    @include tablet {
-      font-size: 1.05rem;
-    }
-  }
-}
-
 // === CONTAINER ===
 .category-container {
-  max-width: 1400px;
-  margin: 0 auto;
   padding: 2rem 1rem;
   width: 100%;
   flex: 1;
+  background-color: #323b42;
   
   @include tablet {
     padding: 2.5rem 2rem;
@@ -195,11 +122,11 @@ const filteredCafes = computed(() => {
 
 .category-count {
   font-size: 1.1rem;
-  color: $color-text-light;
+  color: $color-gold-light;
   margin: 0;
   
   strong {
-    color: $color-navy;
+    color: $color-gold-dark;
     font-size: 1.5rem;
     font-weight: 700;
   }
