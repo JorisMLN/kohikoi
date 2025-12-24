@@ -24,3 +24,51 @@ body {
   background: $color-background;
   line-height: 1.6;
 }
+
+// === SCROLLBAR MODERNE MINIMALISTE ===
+// assets/scss/_base.scss
+
+// === SCROLLBAR MINIMALISTE ===
+
+// Firefox
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212, 175, 55, 0.5) transparent;
+}
+
+// Chrome, Safari, Edge
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $color-blue-dark;
+  border-radius: 3px;
+  transition: background 0.3s ease;
+  
+  &:hover {
+    background: $color-gold;
+  }
+  
+  &:active {
+    background: $color-gold-dark;
+  }
+}
+
+// Pour les zones sombres (inversé)
+.dark-section {
+  scrollbar-color: $color-blue-dark transparent;
+  
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.6);
+    }
+  }
+}

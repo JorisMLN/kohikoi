@@ -9,15 +9,7 @@ defineProps({
 
 <template>
   <NuxtLink :to="`/cafes/${cafe.slug}`" class="cafe-card">
-    <div class="cafe-card__image-wrapper">
-      <img 
-        :src="cafe.photo_url || '/images/placeholder-cafe.jpg'" 
-        :alt="cafe.name"
-        class="cafe-card__image"
-      />
-    </div>
-    
-    <div class="cafe-card__content">
+    <div class="info">
       <div class="cafe-card__header">
         <h3 class="cafe-card__name">{{ cafe.name_ja }}</h3>
         <p class="cafe-card__name-ja">{{ cafe.name }}</p>
@@ -33,112 +25,80 @@ defineProps({
         </span>
       </div>
     </div>
+    <div class="photo">
+      <div class="photo1 photoBase"></div>
+      <div class="photo2 photoBase"></div>
+      <div class="photo3 photoBase"></div>
+    </div>
   </NuxtLink>
 </template>
 
 <style scoped lang="scss">
 .cafe-card {
-  display: block;
+  @include flex-center;
+  flex-direction: row;
   background: white;
-  border-radius: 12px;
-  overflow: hidden;
+  border-radius: 5px;
   text-decoration: none;
   color: inherit;
+  height: 200px;
+  width: 99%;
+  margin: 5px;
+
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
-  height: 80%;
-  
-  @include flex-column;
+
+  .info{
+    height: 100%;
+    width: 30%;
+  }
+
+  .photo{
+    height: 100%;
+    width: 70%;
+    @include flex-center;
+    flex-direction: row;
+
+    .photoBase{
+
+      border: 1px solid white;
+    }
+
+    .photo1{
+      height: 100%;
+      width: 50%;
+      background: url("../assets/images/cafe/little-nap-in-yoyogi.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .photo2{
+      height: 100%;
+      width: 25%;
+      background: url("../assets/images/cafe/lncs1.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .photo3{
+      height: 100%;
+      width: 25%;
+      background: url("../assets/images/cafe/caption.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
   
   &:hover {
-    transform: translateY(-8px);
+    transform: translateX(-8px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
     
     .cafe-card__image {
       transform: scale(1.05);
     }
-  }
-  
-  // === IMAGE SECTION ===
-  &__image-wrapper {
-    position: relative;
-    width: 100%;
-    height: 150px;
-    overflow: hidden;
-    background: white;
-  }
-  
-  &__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
-  }
-  
-  &__category-badge {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    padding: 0.5rem 1rem;
-    background: rgba(212, 175, 55, 0.95);
-    color: $color-navy;
-    font-size: 0.75rem;
-    font-weight: 600;
-    border-radius: 20px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    backdrop-filter: blur(4px);
-  }
-  
-  // === CONTENT SECTION ===
-  &__content {
-    padding: 1.5rem;
-    @include flex-column;
-    gap: 1rem;
-    flex: 1;
-  }
-  
-  &__header {
-    margin-bottom: 0.5rem;
-  }
-  
-  &__name {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: $color-navy;
-    margin: 0 0 0.25rem 0;
-    line-height: 1.3;
-  }
-  
-  &__name-ja {
-    font-size: 0.9rem;
-    color: $color-text-light;
-    margin: 0;
-    font-weight: 400;
-  }
-  
-  &__description {
-    font-size: 0.9rem;
-    color: $color-text;
-    line-height: 1.6;
-    margin: 0;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  
-  &__footer {
-    margin-top: auto;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
-  }
-  
-  &__location {
-    font-size: 0.85rem;
-    color: $color-text-light;
-    font-weight: 500;
   }
   
   // === RESPONSIVE ===

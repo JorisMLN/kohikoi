@@ -1,6 +1,6 @@
 <template>
   <container class="container">
-    <NuxtLink to="/" class="logoNameBloc">珈恋恋</NuxtLink>
+    <NuxtLink to="/" class="logoNameBloc">珈琲恋</NuxtLink>
     <div class="logoNameKata">コーヒーこい</div>
   </container>
 </template>

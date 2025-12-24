@@ -34,6 +34,10 @@ const filteredCafes = computed(() => {
     cafe.city.toLowerCase().includes(searchQuery.value.toLowerCase())
   )
 })
+
+function clearSearch() {
+  searchQuery.value = ''
+}
 </script>
 
 <template>
@@ -44,8 +48,7 @@ const filteredCafes = computed(() => {
       <div class="category-header">
         <p class="category-count">
           <strong>{{ filteredCafes.length }}</strong> 
-          {{ category.name.toLowerCase() }}{{ filteredCafes.length > 1 ? 's' : '' }} 
-          {{ filteredCafes.length > 1 ? 'trouvés' : 'trouvé' }}
+          {{ category.name }}{{ filteredCafes.length > 1 ? 's' : '' }}
         </p>
         
         <!-- Recherche locale (optionnelle) -->
@@ -78,8 +81,8 @@ const filteredCafes = computed(() => {
             : `Il n'y a pas encore de ${category.name.toLowerCase()} dans notre base.` 
           }}
         </p>
-        <NuxtLink to="/" class="btn-primary">
-          Retour à l'accueil
+        <NuxtLink @click="clearSearch" class="btn-primary">
+          Retour à  {{ category.name }}
         </NuxtLink>
       </div>
 
@@ -97,7 +100,7 @@ const filteredCafes = computed(() => {
 
 // === CONTAINER ===
 .category-container {
-  padding: 2rem 1rem;
+  padding: 1rem 1rem;
   width: 100%;
   flex: 1;
   background-color: #323b42;
@@ -160,18 +163,8 @@ const filteredCafes = computed(() => {
 
 // === GRID DES CAFÉS ===
 .cafe-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 2rem;
-  
-  @include tablet {
-    gap: 2.5rem;
-  }
-  
-  @include mobile {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
+  display: flex;
+  flex-wrap: wrap;
 }
 
 // === EMPTY STATE ===

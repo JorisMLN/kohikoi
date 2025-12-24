@@ -1,9 +1,9 @@
 <template>
   <container class="container">
-    <h1>コーヒー恋 Kohikoi</h1>
+    <h1>コーヒー恋</h1>
     <h2>"日本の最高のカフェを発見 !"</h2>
     <div class="buttonStack">
-      <NuxtLink to="/cafes" class="cta-button">Cafés</NuxtLink>
+      <NuxtLink to="/" class="cta-button">Cafés</NuxtLink>
     </div>
   </container>
 </template>
@@ -12,7 +12,7 @@
 .container {
   @include flex-center;
   flex-direction: column;
-  background: white;
+  background: $color-background;
   height: 100vh;
 
   h1{
