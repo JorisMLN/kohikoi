@@ -35,9 +35,11 @@
         <span class="location">
           📍 {{ cafe.city }}
         </span>
+        <span v-if="cafe.price_range" class="price">
+          {{ '¥'.repeat(cafe.price_range) }}
+        </span>
         <span class="events">
-          Events
-          <Icon class="events__icons" size="15" name="bytesize:calendar" />
+          <OpeningDays v-if="cafe.opening_days" :days="cafe.opening_days" />
         </span>
       </div>
     </div>
@@ -58,7 +60,7 @@
   text-decoration: none;
   color: inherit;
   height: 200px;
-  width: 99%;
+  width: 100%;
   margin: 5px;
 
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -69,13 +71,14 @@
     justify-content: space-between;
     flex-direction: column;
     height: 100%;
-    width: 30%;
+    width: 40%;
     background-color: $color-background;
 
     &__header{
       @include flex-center;
       flex-direction: row;
       justify-content: space-between;
+      border: 1px solid red;
 
       .starsBloc{
         @include flex-center;
@@ -109,14 +112,28 @@
       }
     }
 
-    // &__description{
-    //   background-color: azure;
-    // }
+    &__description{
+      border: 1px solid green;
+    }
 
     &__footer{
       display: flex;
       justify-content: space-between;
       flex-direction: row;
+      border: 1px solid blue;
+
+      .price {
+        color: $color-gold;
+        font-weight: 700;
+        font-size: 1rem;
+        letter-spacing: 0.05em;
+        
+        // Style alternatif avec fond
+        background: rgba(212, 175, 55, 0.1);
+        padding: 0.25rem 0.75rem;
+        border-radius: 4px;
+      }
+
       .events{
         &__icons{
           margin-bottom: -2px;
@@ -129,7 +146,7 @@
 
   .photo{
     height: 100%;
-    width: 70%;
+    width: 60%;
     @include flex-center;
     flex-direction: row;
 
@@ -166,7 +183,7 @@
   }
   
   &:hover {
-    transform: translateX(-8px);
+    transform: translateY(-3px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
     
     .cafe-card__image {

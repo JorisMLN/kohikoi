@@ -2,6 +2,8 @@
 import { useCafesStore } from '~/stores/cafes'
 import { useCategoriesStore } from '~/stores/categories'
 
+const { locale, t } = useLanguage()
+
 const route = useRoute()
 const cafesStore = useCafesStore()
 const categoriesStore = useCategoriesStore()
@@ -17,17 +19,15 @@ if (!cafe.value) {
 
 <template>
   <div class="cafe-detail">
-    <!-- Breadcrumb / Navigation -->
-    <div class="cafe-detail__breadcrumb">
-      <NuxtLink :to="`/categories/${category?.slug}`" class="cta-button"> Back </NuxtLink>
-    </div>
-
     <!-- Container principal -->
     <div class="cafe-detail__container">
       
       <!-- Section Image -->
       <div class="cafe-detail__image-section">
         <div class="cafe-detail__image-wrapper">
+          <NuxtLink :to="`/categories/${category?.slug}`" class="btn-secondary">
+            {{ t('backToList') }}
+          </NuxtLink>
           <img 
             :src="cafe.photo_url" 
             :alt="cafe.name"
@@ -87,14 +87,6 @@ if (!cafe.value) {
             <span class="external-icon">↗</span>
           </a>
         </div>
-
-        <!-- Actions -->
-        <div class="cafe-detail__actions">
-          <NuxtLink to="/cafes" class="btn-secondary">
-            ← Retour à la liste
-          </NuxtLink>
-        </div>
-
       </div>
     </div>
   </div>
@@ -330,10 +322,12 @@ if (!cafe.value) {
 
 // === BOUTONS ===
 .btn-secondary {
-  display: inline-flex;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 150px;
+  height: 50px;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.875rem 1.5rem;
   background: white;
   color: $color-navy;
   text-decoration: none;

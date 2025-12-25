@@ -44,47 +44,44 @@ function clearSearch() {
 
 <template>
   <div class="category-page">
-    <div class="category-container">
+    <!-- Header avec stats et recherche -->
+    <div class="category-header">
+      <p class="category-count">
+        <strong>{{ filteredCafes.length }}</strong> 
+        {{ category.name_ja }}
+      </p>
       
-      <!-- Header avec stats et recherche -->
-      <div class="category-header">
-        <p class="category-count">
-          <strong>{{ filteredCafes.length }}</strong> 
-          {{ category.name }}{{ filteredCafes.length > 1 ? 's' : '' }}
-        </p>
-        
-        <input 
-          v-model="searchQuery"
-          type="search" 
-          :placeholder="t('search')"
-          class="category-search"
-        />
-      </div>
-
-      <!-- Grid des cafés -->
-      <div v-if="filteredCafes.length > 0" class="cafe-grid">
-        <CafeCard 
-          v-for="cafe in filteredCafes" 
-          :key="cafe.id"
-          :cafe="cafe" 
-        />
-      </div>
-
-      <!-- Message si aucun café -->
-      <div v-else class="empty-state">
-        <span class="empty-state__icon">{{ category.icon }}</span>
-        <h3 class="empty-state__title">
-          {{ t('noResults') }}
-        </h3>
-        <p class="empty-state__text">
-          {{ t('tryModifySearch') }}
-        </p>
-        <NuxtLink @click="clearSearch" class="btn-primary">
-          {{ t('back') }} {{ category.name }}
-        </NuxtLink>
-      </div>
-
+      <input 
+        v-model="searchQuery"
+        type="search" 
+        :placeholder="t('search')"
+        class="category-search"
+      />
     </div>
+
+    <!-- Grid des cafés -->
+    <div v-if="filteredCafes.length > 0" class="cafe-grid">
+      <CafeCard 
+        v-for="cafe in filteredCafes" 
+        :key="cafe.id"
+        :cafe="cafe" 
+      />
+    </div>
+
+    <!-- Message si aucun café -->
+    <div v-else class="empty-state">
+      <span class="empty-state__icon">{{ category.icon }}</span>
+      <h3 class="empty-state__title">
+        {{ t('noResults') }}
+      </h3>
+      <p class="empty-state__text">
+        {{ t('tryModifySearch') }}
+      </p>
+      <NuxtLink @click="clearSearch" class="btn-primary">
+        {{ t('back') }} {{ category.name }}
+      </NuxtLink>
+    </div>
+
   </div>
 </template>
 
@@ -96,24 +93,13 @@ function clearSearch() {
   flex-direction: column;
 }
 
-// === CONTAINER ===
-.category-container {
-  padding: 1rem 1rem;
-  width: 100%;
-  flex: 1;
-  background-color: #323b42;
-  
-  @include tablet {
-    padding: 2.5rem 2rem;
-  }
-}
-
 // === HEADER (stats + recherche) ===
 .category-header {
-  margin-bottom: 2rem;
   @include flex-between;
-  gap: 1rem;
   flex-wrap: wrap;
+  height: 80px;
+  background-color: $color-aquarel;
+  padding: 10px;
   
   @include mobile {
     flex-direction: column;
@@ -164,6 +150,7 @@ function clearSearch() {
 .cafe-grid {
   display: flex;
   flex-wrap: wrap;
+  background-color: $color-aquarel;
 }
 
 // === EMPTY STATE ===

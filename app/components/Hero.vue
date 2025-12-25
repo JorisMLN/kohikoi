@@ -6,9 +6,6 @@
   <div class="container">
     <h1>{{ t('title') }}</h1>
     <h2>{{ t('tagline') }}</h2>
-    <div class="buttonStack">
-      <NuxtLink to="/" class="cta-button">Cafés</NuxtLink>
-    </div>
   </div>
 </template>
 
@@ -26,30 +23,6 @@
   h2{
     color: $color-text-light
   }
-
-  .buttonStack{
-    @include flex-center;
-    flex-direction: row;
-
-    button{
-      height: 6vh;
-      width: 10vw;
-      margin: 10px;
-    }
-  }
-
-.cta-button {
-  padding: 1rem 2rem;
-  background: $color-background;
-  color: black;
-  text-decoration: none;
-  border-radius: 8px;
-  margin: 5px;
-  
-  &:hover {
-    background: $color-text-light;
-  }
-}
   
   @include mobile {    
     padding: 1rem;

@@ -6,6 +6,99 @@ export const useCafesStore = defineStore('cafes', {
   // 📊 STATE = Les données
 state: () => ({
   cafes: [
+    // === COFFEE STAND (コーヒースタンド) - 7 cafés ===
+    {
+      id: 27,
+      slug: 'little-nap-coffee-stand',
+      name: 'Little Nap Coffee Stand',
+      name_ja: 'リトルナップコーヒースタンド',
+      category: 'coffee-stand',
+      city: 'Tokyo',
+      address: 'Yoyogi-Hachiman',
+      opening_days: [true, true, false, true, true, true, false],
+      description: 'Tiny stand emblématique, espresso parfait',
+      price_range: 1,
+      photo_url: '/images/cafes/littlenap.jpg',
+      google_maps_url: 'https://maps.app.goo.gl/littlenap'
+    },
+    {
+      id: 24,
+      slug: 'about-life-coffee-brewers',
+      name: 'About Life Coffee Brewers',
+      name_ja: 'アバウトライフコーヒーブリュワーズ',
+      category: 'coffee-stand',
+      city: 'Tokyo',
+      address: 'Shibuya',
+      opening_days: [true, true, false, false, true, true, true],
+      description: 'Coffee stand urbain, take-away rapide et qualité',
+      price_range: 2,
+      photo_url: '/images/cafes/aboutlife.jpg',
+      google_maps_url: 'https://maps.app.goo.gl/aboutlife'
+    },
+    {
+      id: 25,
+      slug: 'bookends-coffee',
+      name: 'Bookends Coffee Service',
+      name_ja: 'ブックエンズコーヒー',
+      category: 'coffee-stand',
+      city: 'Tokyo',
+      address: 'Shimokitazawa',
+      opening_days: [false, true, true, true, true, true, false],
+      description: 'Stand minimaliste, espresso à 200 yen',
+      price_range: 3,
+      photo_url: '/images/cafes/bookends.jpg',
+      google_maps_url: 'https://maps.app.goo.gl/bookends'
+    },
+    {
+      id: 26,
+      slug: 'ima-coffee-stand',
+      name: 'Ima Coffee Stand',
+      name_ja: 'イマコーヒースタンド',
+      category: 'coffee-stand',
+      city: 'Osaka',
+      address: 'Shin-Osaka',
+      opening_days: [true, true, false, true, true, true, false],
+      description: 'Stand de gare, café rapide pour commuters',
+      photo_url: '/images/cafes/ima.jpg',
+      price_range: 2,
+      google_maps_url: 'https://maps.app.goo.gl/ima'
+    },
+    {
+      id: 28,
+      slug: 'turret-coffee',
+      name: 'Turret Coffee',
+      name_ja: 'タレットコーヒー',
+      category: 'coffee-stand',
+      city: 'Tokyo',
+      address: 'Sangenjaya',
+      description: 'Stand compact, spécialité flat white',
+      photo_url: '/images/cafes/turret.jpg',
+      google_maps_url: 'https://maps.app.goo.gl/turret'
+    },
+    {
+      id: 29,
+      slug: 'passage-coffee',
+      name: 'Passage Coffee',
+      name_ja: 'パッセージコーヒー',
+      category: 'coffee-stand',
+      city: 'Tokyo',
+      address: 'Omotesando',
+      description: 'Stand caché dans un passage, café d\'excellence',
+      photo_url: '/images/cafes/passage.jpg',
+      google_maps_url: 'https://maps.app.goo.gl/passage'
+    },
+    {
+      id: 30,
+      slug: 'unlimited-coffee-bar',
+      name: 'Unlimited Coffee Bar',
+      name_ja: 'アンリミテッドコーヒーバー',
+      category: 'coffee-stand',
+      city: 'Fukuoka',
+      address: 'Tenjin',
+      description: 'Stand moderne de Fukuoka, ambiance décontractée',
+      photo_url: '/images/cafes/unlimited.jpg',
+      google_maps_url: 'https://maps.app.goo.gl/unlimited'
+    },
     // === KISSATEN (喫茶店) - 8 cafés ===
     {
       id: 1,
@@ -15,6 +108,7 @@ state: () => ({
       category: 'kissaten',
       city: 'Tokyo',
       address: 'Shibuya',
+      opening_days: [true, false, false, true, true, true, false],
       description: 'Kissaten traditionnel depuis 1989, ambiance Showa authentique',
       photo_url: '/images/cafes/chatei-hatou.jpg',
       google_maps_url: 'https://maps.app.goo.gl/chatei-hatou'
@@ -27,6 +121,7 @@ state: () => ({
       category: 'kissaten',
       city: 'Tokyo',
       address: 'Jimbocho',
+      opening_days: [true, true, false, true, true, true, false],
       description: 'Kissaten historique depuis 1976, torréfaction maison',
       photo_url: '/images/cafes/trois-bagues.jpg',
       google_maps_url: 'https://maps.app.goo.gl/trois-bagues'
@@ -39,6 +134,7 @@ state: () => ({
       category: 'kissaten',
       city: 'Tokyo',
       address: 'Ueno',
+      opening_days: [true, true, false, true, false, true, false],
       description: 'Kissaten rétro depuis 1977, spécialité de pancakes',
       photo_url: '/images/cafes/galant.jpg',
       google_maps_url: 'https://maps.app.goo.gl/galant'
@@ -51,6 +147,7 @@ state: () => ({
       category: 'kissaten',
       city: 'Kyoto',
       address: 'Gion',
+      opening_days: [true, true, false, true, true, true, false],
       description: 'Kissaten traditionnel de Gion, atmosphère paisible',
       photo_url: '/images/cafes/takase.jpg',
       google_maps_url: 'https://maps.app.goo.gl/takase'
@@ -63,6 +160,7 @@ state: () => ({
       category: 'kissaten',
       city: 'Tokyo',
       address: 'Tsukiji',
+      opening_days: [true, true, false, true, true, true, false],
       description: 'Kissaten du marché de Tsukiji, morning set réputé',
       photo_url: '/images/cafes/aozora.jpg',
       google_maps_url: 'https://maps.app.goo.gl/aozora'
@@ -75,6 +173,7 @@ state: () => ({
       category: 'kissaten',
       city: 'Osaka',
       address: 'Shinsaibashi',
+      opening_days: [true, true, false, true, true, true, false],
       description: 'Kissaten emblématique d\'Osaka depuis 1950',
       photo_url: '/images/cafes/arabica-osaka.jpg',
       google_maps_url: 'https://maps.app.goo.gl/arabica'
@@ -87,6 +186,7 @@ state: () => ({
       category: 'kissaten',
       city: 'Tokyo',
       address: 'Shibuya',
+      opening_days: [true, true, false, true, true, true, false],
       description: 'Kissaten musical avec concerts de musique classique',
       photo_url: '/images/cafes/lion.jpg',
       google_maps_url: 'https://maps.app.goo.gl/lion'
@@ -99,6 +199,7 @@ state: () => ({
       category: 'kissaten',
       city: 'Yokohama',
       address: 'Motomachi',
+      opening_days: [true, true, false, true, true, true, false],
       description: 'Kissaten de Yokohama, spécialité de toast épais',
       photo_url: '/images/cafes/rusk.jpg',
       google_maps_url: 'https://maps.app.goo.gl/rusk'
@@ -113,6 +214,7 @@ state: () => ({
       category: 'junseikissaten',
       city: 'Tokyo',
       address: 'Minami-Senju',
+      opening_days: [true, true, false, true, true, true, false],
       description: 'Pure café avec torréfaction artisanale depuis 1968',
       photo_url: '/images/cafes/cafe-bach.jpg',
       google_maps_url: 'https://maps.app.goo.gl/bach'
@@ -125,6 +227,7 @@ state: () => ({
       category: 'junseikissaten',
       city: 'Osaka',
       address: 'Kitahama',
+      opening_days: [true, true, false, true, true, true, false],
       description: 'Junseikissaten réputé, silence total exigé',
       photo_url: '/images/cafes/sunshine.jpg',
       google_maps_url: 'https://maps.app.goo.gl/sunshine'
@@ -137,6 +240,7 @@ state: () => ({
       category: 'junseikissaten',
       city: 'Osaka',
       address: 'Namba',
+      opening_days: [true, true, false, true, true, true, false],
       description: 'Café bouillu traditionnel depuis 1921, méthode unique',
       photo_url: '/images/cafes/hiraoka.jpg',
       google_maps_url: 'https://maps.app.goo.gl/hiraoka'
@@ -199,6 +303,7 @@ state: () => ({
       category: 'third-wave',
       city: 'Tokyo',
       address: 'Nakameguro',
+      opening_days: [true, true, false, true, true, true, false],
       description: 'Third wave specialty coffee, torréfaction artisanale',
       photo_url: '/images/cafes/onibus.jpg',
       google_maps_url: 'https://maps.app.goo.gl/onibus'
@@ -211,6 +316,7 @@ state: () => ({
       category: 'third-wave',
       city: 'Kyoto',
       address: 'Arashiyama',
+      opening_days: [true, true, false, true, true, true, false],
       description: 'Café third wave iconique avec vue sur la rivière',
       photo_url: '/images/cafes/arabica-kyoto.jpg',
       google_maps_url: 'https://maps.app.goo.gl/arabica-kyoto'
@@ -223,6 +329,7 @@ state: () => ({
       category: 'third-wave',
       city: 'Osaka',
       address: 'Fukushima',
+      opening_days: [true, false, false, true, true, true, false],
       description: 'Torréfacteur third wave d\'Osaka depuis 2016',
       photo_url: '/images/cafes/mel.jpg',
       google_maps_url: 'https://maps.app.goo.gl/mel'
@@ -287,93 +394,6 @@ state: () => ({
       photo_url: '/images/cafes/glitch.jpg',
       google_maps_url: 'https://maps.app.goo.gl/glitch'
     },
-
-    // === COFFEE STAND (コーヒースタンド) - 7 cafés ===
-    {
-      id: 24,
-      slug: 'about-life-coffee-brewers',
-      name: 'About Life Coffee Brewers',
-      name_ja: 'アバウトライフコーヒーブリュワーズ',
-      category: 'coffee-stand',
-      city: 'Tokyo',
-      address: 'Shibuya',
-      description: 'Coffee stand urbain, take-away rapide et qualité',
-      photo_url: '/images/cafes/aboutlife.jpg',
-      google_maps_url: 'https://maps.app.goo.gl/aboutlife'
-    },
-    {
-      id: 25,
-      slug: 'bookends-coffee',
-      name: 'Bookends Coffee Service',
-      name_ja: 'ブックエンズコーヒー',
-      category: 'coffee-stand',
-      city: 'Tokyo',
-      address: 'Shimokitazawa',
-      description: 'Stand minimaliste, espresso à 200 yen',
-      photo_url: '/images/cafes/bookends.jpg',
-      google_maps_url: 'https://maps.app.goo.gl/bookends'
-    },
-    {
-      id: 26,
-      slug: 'ima-coffee-stand',
-      name: 'Ima Coffee Stand',
-      name_ja: 'イマコーヒースタンド',
-      category: 'coffee-stand',
-      city: 'Osaka',
-      address: 'Shin-Osaka',
-      description: 'Stand de gare, café rapide pour commuters',
-      photo_url: '/images/cafes/ima.jpg',
-      google_maps_url: 'https://maps.app.goo.gl/ima'
-    },
-    {
-      id: 27,
-      slug: 'little-nap-coffee-stand',
-      name: 'Little Nap Coffee Stand',
-      name_ja: 'リトルナップコーヒースタンド',
-      category: 'coffee-stand',
-      city: 'Tokyo',
-      address: 'Yoyogi-Hachiman',
-      description: 'Tiny stand emblématique, espresso parfait',
-      photo_url: '/images/cafes/littlenap.jpg',
-      google_maps_url: 'https://maps.app.goo.gl/littlenap'
-    },
-    {
-      id: 28,
-      slug: 'turret-coffee',
-      name: 'Turret Coffee',
-      name_ja: 'タレットコーヒー',
-      category: 'coffee-stand',
-      city: 'Tokyo',
-      address: 'Sangenjaya',
-      description: 'Stand compact, spécialité flat white',
-      photo_url: '/images/cafes/turret.jpg',
-      google_maps_url: 'https://maps.app.goo.gl/turret'
-    },
-    {
-      id: 29,
-      slug: 'passage-coffee',
-      name: 'Passage Coffee',
-      name_ja: 'パッセージコーヒー',
-      category: 'coffee-stand',
-      city: 'Tokyo',
-      address: 'Omotesando',
-      description: 'Stand caché dans un passage, café d\'excellence',
-      photo_url: '/images/cafes/passage.jpg',
-      google_maps_url: 'https://maps.app.goo.gl/passage'
-    },
-    {
-      id: 30,
-      slug: 'unlimited-coffee-bar',
-      name: 'Unlimited Coffee Bar',
-      name_ja: 'アンリミテッドコーヒーバー',
-      category: 'coffee-stand',
-      city: 'Fukuoka',
-      address: 'Tenjin',
-      description: 'Stand moderne de Fukuoka, ambiance décontractée',
-      photo_url: '/images/cafes/unlimited.jpg',
-      google_maps_url: 'https://maps.app.goo.gl/unlimited'
-    },
-
     // === OCHAYA / TEA HOUSE (お茶屋) - 8 cafés ===
     {
       id: 31,
@@ -383,6 +403,7 @@ state: () => ({
       category: 'ochaya',
       city: 'Kyoto',
       address: 'Nakagyo-ku',
+      opening_days: [true, true, false, true, true, true, false],
       description: 'Salon de thé zen, cérémonie du thé traditionnelle',
       photo_url: '/images/cafes/yugen.jpg',
       google_maps_url: 'https://maps.app.goo.gl/yugen'
@@ -395,6 +416,7 @@ state: () => ({
       category: 'ochaya',
       city: 'Kyoto',
       address: 'Gion',
+      opening_days: [true, true, false, true, true, true, false],
       description: 'Salon de thé historique de Gion depuis 1716',
       photo_url: '/images/cafes/kagizen.jpg',
       google_maps_url: 'https://maps.app.goo.gl/kagizen'
@@ -481,6 +503,7 @@ state: () => ({
       category: 'book-cafe',
       city: 'Tokyo',
       address: 'Daikanyama',
+      opening_days: [true, true, false, true, true, true, false],
       description: 'Librairie-café emblématique, collection design',
       photo_url: '/images/cafes/tsutaya.jpg',
       google_maps_url: 'https://maps.app.goo.gl/tsutaya'
@@ -493,6 +516,7 @@ state: () => ({
       category: 'book-cafe',
       city: 'Osaka',
       address: 'Umeda',
+      opening_days: [true, true, false, true, true, true, false],
       description: 'Book café avec 20 000 livres, ambiance chaleureuse',
       photo_url: '/images/cafes/bibliotheque.jpg',
       google_maps_url: 'https://maps.app.goo.gl/bibliotheque'
@@ -567,6 +591,7 @@ state: () => ({
       category: 'gallery-cafe',
       city: 'Tokyo',
       address: 'Kiyosumi-Shirakawa',
+      opening_days: [true, true, false, true, true, true, false],
       description: 'Café-galerie près du musée d\'art contemporain',
       photo_url: '/images/cafes/arise.jpg',
       google_maps_url: 'https://maps.app.goo.gl/arise'
@@ -579,6 +604,7 @@ state: () => ({
       category: 'gallery-cafe',
       city: 'Tokyo',
       address: 'Kagurazaka',
+      opening_days: [false, false, false, true, true, true, false],
       description: 'Café-galerie-librairie, expositions mensuelles',
       photo_url: '/images/cafes/weekenders-gallery.jpg',
       google_maps_url: 'https://maps.app.goo.gl/weekenders-gallery'
