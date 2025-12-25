@@ -1,8 +1,8 @@
 <template>
-  <container class="container">
+  <div class="container">
     <NuxtLink to="/" class="logoNameBloc">珈琲恋</NuxtLink>
     <div class="logoNameKata">コーヒーこい</div>
-  </container>
+  </div>
 </template>
 
 <style scoped lang="scss">

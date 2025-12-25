@@ -1,11 +1,15 @@
+<script setup>
+  const { locale, t } = useLanguage()
+</script>
+
 <template>
-  <container class="container">
-    <h1>コーヒー恋</h1>
-    <h2>"日本の最高のカフェを発見 !"</h2>
+  <div class="container">
+    <h1>{{ t('title') }}</h1>
+    <h2>{{ t('tagline') }}</h2>
     <div class="buttonStack">
       <NuxtLink to="/" class="cta-button">Cafés</NuxtLink>
     </div>
-  </container>
+  </div>
 </template>
 
 <style scoped lang="scss">

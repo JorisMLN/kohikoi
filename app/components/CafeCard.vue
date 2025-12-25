@@ -1,27 +1,43 @@
 <script setup>
-defineProps({
-  cafe: {
-    type: Object,
-    required: true
-  }
-})
+  defineProps({
+    cafe: {
+      type: Object,
+      required: true
+    }
+  })
 </script>
 
 <template>
   <NuxtLink :to="`/cafes/${cafe.slug}`" class="cafe-card">
     <div class="info">
-      <div class="cafe-card__header">
-        <h3 class="cafe-card__name">{{ cafe.name_ja }}</h3>
-        <p class="cafe-card__name-ja">{{ cafe.name }}</p>
+      <div class="info__header">
+        <div class="names">
+          <h3 class="cafe-card__name">{{ cafe.name_ja }}</h3>
+          <p class="cafe-card__name-ja">{{ cafe.name }}</p>
+        </div>
+        <div class="starsBloc">
+          <div class="superStars">
+            <div class="superStars__count">4</div>
+            <Icon class="superStars__icons" size="30" name="solar:star-fall-2-bold" />
+          </div>
+          <div class="stars">
+            <div class="stars__count">45</div>
+            <Icon class="stars__icons" size="20" name="solar:star-fall-bold" />
+          </div>
+        </div>
       </div>
       
-      <p class="cafe-card__description">
+      <p class="info__description">
         {{ cafe.description }}
       </p>
       
-      <div class="cafe-card__footer">
-        <span class="cafe-card__location">
+      <div class="info__footer">
+        <span class="location">
           📍 {{ cafe.city }}
+        </span>
+        <span class="events">
+          Events
+          <Icon class="events__icons" size="15" name="bytesize:calendar" />
         </span>
       </div>
     </div>
@@ -49,8 +65,66 @@ defineProps({
   transition: all 0.3s ease;
 
   .info{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
     height: 100%;
     width: 30%;
+    background-color: $color-background;
+
+    &__header{
+      @include flex-center;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .starsBloc{
+        @include flex-center;
+        flex-direction: column;
+
+        .superStars{
+          @include flex-center;
+          flex-direction: row;
+
+          &__count{
+            font-size: $font-size-large;
+          }
+
+          &__icons{
+            color: $color-gold-light;
+          }
+        }
+
+        .stars{
+          @include flex-center;
+          flex-direction: row;
+
+          &__count{
+            font-size: $font-size-small;
+          }
+
+          &__icons{
+            color: $color-gold;
+          }
+        }
+      }
+    }
+
+    // &__description{
+    //   background-color: azure;
+    // }
+
+    &__footer{
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      .events{
+        &__icons{
+          margin-bottom: -2px;
+        }
+      }
+    }
+
+
   }
 
   .photo{
@@ -60,7 +134,6 @@ defineProps({
     flex-direction: row;
 
     .photoBase{
-
       border: 1px solid white;
     }
 

@@ -1,7 +1,7 @@
 <template>
   <article>
     <h2>On est qui ?</h2>
-    <Text> Je suis solo pour l'instant</Text>
+    <p> Je suis solo pour l'instant</p>
   </article>
 </template>
 

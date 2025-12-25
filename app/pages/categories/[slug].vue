@@ -6,6 +6,8 @@ const route = useRoute()
 const cafesStore = useCafesStore()
 const categoriesStore = useCategoriesStore()
 
+const { locale, t } = useLanguage()
+
 // Récupérer la catégorie selon le slug dans l'URL
 const category = computed(() => 
   categoriesStore.getCategoryBySlug(route.params.slug)
@@ -51,11 +53,10 @@ function clearSearch() {
           {{ category.name }}{{ filteredCafes.length > 1 ? 's' : '' }}
         </p>
         
-        <!-- Recherche locale (optionnelle) -->
         <input 
           v-model="searchQuery"
           type="search" 
-          placeholder="Rechercher dans cette catégorie..."
+          :placeholder="t('search')"
           class="category-search"
         />
       </div>
@@ -73,16 +74,13 @@ function clearSearch() {
       <div v-else class="empty-state">
         <span class="empty-state__icon">{{ category.icon }}</span>
         <h3 class="empty-state__title">
-          {{ searchQuery ? 'Aucun résultat' : 'Aucun café dans cette catégorie' }}
+          {{ t('noResults') }}
         </h3>
         <p class="empty-state__text">
-          {{ searchQuery 
-            ? 'Essayez de modifier votre recherche' 
-            : `Il n'y a pas encore de ${category.name.toLowerCase()} dans notre base.` 
-          }}
+          {{ t('tryModifySearch') }}
         </p>
         <NuxtLink @click="clearSearch" class="btn-primary">
-          Retour à  {{ category.name }}
+          {{ t('back') }} {{ category.name }}
         </NuxtLink>
       </div>
 
@@ -144,6 +142,7 @@ function clearSearch() {
   color: $color-text;
   min-width: 300px;
   transition: all 0.3s ease;
+
   
   @include mobile {
     width: 100%;

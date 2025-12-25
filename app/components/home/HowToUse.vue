@@ -1,7 +1,7 @@
 <template>
   <article>
     <h2>Comment utiliser ???</h2>
-    <Text> Je sais mais c'est pas dev</Text>
+    <p> Je sais mais c'est pas dev</p>
   </article>
 </template>
 
