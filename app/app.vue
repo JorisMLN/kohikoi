@@ -1,3 +1,12 @@
+<script setup>
+const { checkAuth } = useAuth()
+
+// Vérifie l'auth au démarrage
+onMounted(async () => {
+  await checkAuth()
+})
+</script>
+
 <template>
   <div class="mainContainer"> 
     <div class="leftContainer">
