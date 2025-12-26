@@ -10,6 +10,41 @@ export const useLanguage = () => {
   const locale = useState<Locale>('locale', () => 'ja')
   
   const translations: Translations = {
+        ja: {
+      // Common
+      search: "このカテゴリーで検索...",
+      back: "戻る",
+      profile: "プロフィール",
+      informations: "情報",
+      location: "場所",
+      category: "カテゴリー",
+      backToList: "リストに戻る",
+      viewOnGoogleMaps: "Googleマップで見る",
+      login: "login-jp",
+      password: "password-jp",
+      validate: "validate-jp",
+      
+      // Categories
+      ochaya: "お茶屋",
+      kissaten: "喫茶店",
+      junseikissaten: "純喫茶",
+      coffeeStand: "コーヒースタンド",
+      galleryCafe: "ギャラリーカフェ",
+      thirdWave: "サードウェーブ",
+      bookCafe: "ブックカフェ",
+      
+      // Home
+      title: "珈琲恋",
+      tagline: "日本最高の喫茶店とお茶屋！",
+      aboutUs: "私たちについて",
+      howToUse: "Kohikoiの使い方",
+      
+      // Messages
+      noResults: "結果なし",
+      tryModifySearch: "検索を変更してみてください",
+      noCafeYet: "まだデータベースにカフェがありません",
+      resetSearch: "検索をリセット"
+    },
     fr: {
       // Common
       search: "Rechercher dans cette catégorie...",
@@ -20,6 +55,9 @@ export const useLanguage = () => {
       category: "Catégorie",
       backToList: "Retour à la liste",
       viewOnGoogleMaps: "Voir sur Google Maps",
+      login: "login",
+      password: "password",
+      validate: "validate",
       
       // Categories
       ochaya: "Salon de Thé",
@@ -52,6 +90,9 @@ export const useLanguage = () => {
       category: "Category",
       backToList: "Back to list",
       viewOnGoogleMaps: "View on Google Maps",
+      login: "login",
+      password: "password",
+      validate: "validate",
       
       // Categories
       ochaya: "Japanese Tea House",
@@ -73,38 +114,6 @@ export const useLanguage = () => {
       tryModifySearch: "Try modifying your search",
       noCafeYet: "There are no cafés in our database yet",
       resetSearch: "Reset search"
-    },
-    ja: {
-      // Common
-      search: "このカテゴリーで検索...",
-      back: "戻る",
-      profile: "プロフィール",
-      informations: "情報",
-      location: "場所",
-      category: "カテゴリー",
-      backToList: "リストに戻る",
-      viewOnGoogleMaps: "Googleマップで見る",
-      
-      // Categories
-      ochaya: "お茶屋",
-      kissaten: "喫茶店",
-      junseikissaten: "純喫茶",
-      coffeeStand: "コーヒースタンド",
-      galleryCafe: "ギャラリーカフェ",
-      thirdWave: "サードウェーブ",
-      bookCafe: "ブックカフェ",
-      
-      // Home
-      title: "珈琲恋",
-      tagline: "日本最高の喫茶店とお茶屋！",
-      aboutUs: "私たちについて",
-      howToUse: "Kohikoiの使い方",
-      
-      // Messages
-      noResults: "結果なし",
-      tryModifySearch: "検索を変更してみてください",
-      noCafeYet: "まだデータベースにカフェがありません",
-      resetSearch: "検索をリセット"
     }
   }
   

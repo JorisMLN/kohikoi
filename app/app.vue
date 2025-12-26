@@ -22,6 +22,7 @@
       width: 25vw;
       overflow-y: auto;    
       overflow-x: hidden;
+      border-right: 3px solid $color-aquarel;
     }
 
     .rightContainer{

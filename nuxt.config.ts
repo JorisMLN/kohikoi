@@ -8,6 +8,10 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
 
+  runtimeConfig: {
+    jwtSecret: process.env.JWT_SECRET || 'fallback_secret_for_dev'
+  },
+
   googleFonts: {
     families: {
       'Klee One': [400, 600],
