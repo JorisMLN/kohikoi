@@ -99,6 +99,12 @@ $shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
 }
 
+@mixin tablet-down {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
 // Scrollbar personnalisée
 @mixin custom-scrollbar {
   &::-webkit-scrollbar {

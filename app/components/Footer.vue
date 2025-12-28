@@ -21,14 +21,20 @@ footer {
   background-position: center;
     
     .profil{
+      color: white;
+
       &__icon {
-        color: white;
         margin-bottom: 5px;
         transition: color 0.9s ease;
+      }
 
-        &:hover {
-          color: $color-gold-light;
-        }
+      &:hover {
+        color: $color-gold-light;
+      }
+
+      &.router-link-active {
+        color: $color-gold;
+        font-weight: 600;
       }
     }
 

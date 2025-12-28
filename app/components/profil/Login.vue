@@ -42,6 +42,6 @@ async function handleLogin() {
 
 <style scoped lang="scss">
 .container {
-  background-color: beige;
+  background: $color-background;
 }
 </style>

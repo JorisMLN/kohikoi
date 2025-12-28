@@ -1,12 +1,16 @@
-// app/stores/categories.ts
+export interface Category {
+  id: number
+  slug: string
+  name: string
+  name_ja: string
+  name_ja_short: string
+  name_fr: string
+  icon: string
+}
 
-import { defineStore } from 'pinia'
-
-export const useCategoriesStore = defineStore('categories', {
-  state: () => ({
-  categories: [
+export const categories: Category[] = [
   {
-    id: 5,
+    id: 7,
     slug: 'ochaya',
     name: 'Ochaya',
     name_ja: 'お茶屋',
@@ -15,7 +19,7 @@ export const useCategoriesStore = defineStore('categories', {
     icon: '🍃'
   },
   {
-    id: 1,
+    id: 6,
     slug: 'kissaten',
     name: 'Kissaten',
     name_ja: '喫茶店',
@@ -24,7 +28,7 @@ export const useCategoriesStore = defineStore('categories', {
     icon: '🏮'
   },
   {
-    id: 2,
+    id: 5,
     slug: 'junseikissaten',
     name: 'Junseikissaten',
     name_ja: '純喫茶',
@@ -33,7 +37,7 @@ export const useCategoriesStore = defineStore('categories', {
     icon: '🍵'
   },
   {
-    id: 7,
+    id: 4,
     slug: 'onsen-cafe',
     name: 'Onsen Cafe',
     name_ja: '温泉カフェ',
@@ -42,7 +46,7 @@ export const useCategoriesStore = defineStore('categories', {
     icon: '♨️'
   },
   {
-    id: 6,
+    id: 3,
     slug: 'book-cafe',
     name: 'Book Cafe',
     name_ja: 'ブックカフェ',
@@ -51,7 +55,7 @@ export const useCategoriesStore = defineStore('categories', {
     icon: '📚'
   },
   {
-    id: 3,
+    id: 2,
     slug: 'third-wave',
     name: 'Third Wave',
     name_ja: 'サードウェーブ',
@@ -60,7 +64,7 @@ export const useCategoriesStore = defineStore('categories', {
     icon: '☕'
   },
   {
-    id: 4,
+    id: 1,
     slug: 'coffee-stand',
     name: 'Coffee Stand',
     name_ja: 'コーヒースタンド',
@@ -69,13 +73,15 @@ export const useCategoriesStore = defineStore('categories', {
     icon: '🥤'
   }
 ]
-  }),
-  
-  getters: {
-    allCategories: (state) => state.categories,
-    
-    getCategoryBySlug: (state) => {
-      return (slug: string) => state.categories.find(c => c.slug === slug)
-    }
-  }
-})
+
+export function getCategoryBySlug(slug: string): Category | undefined {
+  return categories.find(cat => cat.slug === slug)
+}
+
+export function getCategoryById(id: number): Category | undefined {
+  return categories.find(cat => cat.id === id)
+}
+
+export function getAllCategories(): Category[] {
+  return categories
+}

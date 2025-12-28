@@ -40,7 +40,7 @@ const dayNames = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', '
     font-family: $font-primary;
     
     &--open {
-      color: $color-blue-dark;
+      color: $color-gold-light;
     }
     
     &--closed {

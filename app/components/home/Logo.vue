@@ -14,6 +14,7 @@
   width: 100%;
 
   .logoNameBloc{
+    font-weight: 600;
     font-size: 68px;
     height: 210px;
     width: 70px;
@@ -26,15 +27,16 @@
     &:hover {
       color: $color-gold-light;
     }
+
+    &.router-link-active {
+      color: $color-gold;
+      font-weight: 600;
+    }
   }
 
   .logoNameKata{
-    font-size: 12px;
-    color: $color-text-light;
-  }
-
-  .fake-button{
-    margin-top: 20px;
+    font-size: 10px;
+    color: $color-blue-dark;
   }
 }
 </style>

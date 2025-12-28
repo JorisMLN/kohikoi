@@ -98,7 +98,6 @@ function clearSearch() {
   @include flex-between;
   flex-wrap: wrap;
   height: 80px;
-  background-color: $color-aquarel;
   padding: 10px;
   
   @include mobile {
@@ -109,11 +108,11 @@ function clearSearch() {
 
 .category-count {
   font-size: 1.1rem;
-  color: $color-gold-light;
+  color: $color-navy-dark;
   margin: 0;
   
   strong {
-    color: $color-gold-dark;
+    color: $color-blue-dark;
     font-size: 1.5rem;
     font-weight: 700;
   }
@@ -150,7 +149,6 @@ function clearSearch() {
 .cafe-grid {
   display: flex;
   flex-wrap: wrap;
-  background-color: $color-aquarel;
 }
 
 // === EMPTY STATE ===

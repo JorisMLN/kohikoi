@@ -31,11 +31,11 @@ onMounted(async () => {
       width: 25vw;
       overflow-y: auto;    
       overflow-x: hidden;
-      border-right: 3px solid $color-aquarel;
+      border-right: 3px solid $color-gold;
     }
 
     .rightContainer{
-      background-color: beige;
+      background: $color-background;
       height: 100vh;
       width: 75vw;
        overflow-y: auto;    
