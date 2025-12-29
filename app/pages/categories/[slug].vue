@@ -1,22 +1,18 @@
 <script setup>
-import { useCafesStore } from '~/stores/cafes'
-import { useCategoriesStore } from '~/stores/categories'
-
 const route = useRoute()
-const cafesStore = useCafesStore()
-const categoriesStore = useCategoriesStore()
-
 const { locale, t } = useLanguage()
 
-// Récupérer la catégorie selon le slug dans l'URL
-const category = computed(() => 
-  categoriesStore.getCategoryBySlug(route.params.slug)
-)
+// Utiliser les composables au lieu des stores
+const { cafes, loading, error, pagination, fetchCafesByCategory } = useCafes()
+const { categories, fetchCategories, getCategoryBySlug } = useCategories()
 
-// Récupérer tous les cafés de cette catégorie
-const cafes = computed(() => 
-  cafesStore.getCafesByCategory(route.params.slug)
-)
+// Charger les catégories si pas encore fait
+if (categories.value.length === 0) {
+  await fetchCategories()
+}
+
+// Récupérer la catégorie selon le slug dans l'URL
+const category = computed(() => getCategoryBySlug(route.params.slug))
 
 // Si la catégorie n'existe pas, erreur 404
 if (!category.value) {
@@ -25,6 +21,14 @@ if (!category.value) {
     message: 'Catégorie introuvable' 
   })
 }
+
+// Charger les cafés de cette catégorie
+await fetchCafesByCategory(route.params.slug, {
+  page: 1,
+  limit: 20,
+  sort: 'name',
+  order: 'asc'
+})
 
 // Fonction de recherche locale (optionnelle)
 const searchQuery = ref('')
@@ -44,44 +48,56 @@ function clearSearch() {
 
 <template>
   <div class="category-page">
-    <!-- Header avec stats et recherche -->
-    <div class="category-header">
-      <p class="category-count">
-        <strong>{{ filteredCafes.length }}</strong> 
-        {{ category.name_ja }}
-      </p>
-      
-      <input 
-        v-model="searchQuery"
-        type="search" 
-        :placeholder="t('search')"
-        class="category-search"
-      />
+    <!-- Loading state -->
+    <div v-if="loading" class="loading-state">
+      Chargement...
     </div>
 
-    <!-- Grid des cafés -->
-    <div v-if="filteredCafes.length > 0" class="cafe-grid">
-      <CafeCard 
-        v-for="cafe in filteredCafes" 
-        :key="cafe.id"
-        :cafe="cafe" 
-      />
+    <!-- Error state -->
+    <div v-else-if="error" class="error-state">
+      {{ error }}
     </div>
 
-    <!-- Message si aucun café -->
-    <div v-else class="empty-state">
-      <span class="empty-state__icon">{{ category.icon }}</span>
-      <h3 class="empty-state__title">
-        {{ t('noResults') }}
-      </h3>
-      <p class="empty-state__text">
-        {{ t('tryModifySearch') }}
-      </p>
-      <NuxtLink @click="clearSearch" class="btn-primary">
-        {{ t('back') }} {{ category.name }}
-      </NuxtLink>
-    </div>
+    <!-- Content -->
+    <template v-else>
+      <!-- Header avec stats et recherche -->
+      <div class="category-header">
+        <p class="category-count">
+          <strong>{{ filteredCafes.length }}</strong> 
+          {{ category.name_ja }}
+        </p>
+        
+        <input 
+          v-model="searchQuery"
+          type="search" 
+          :placeholder="t('search')"
+          class="category-search"
+        />
+      </div>
 
+      <!-- Grid des cafés -->
+      <div v-if="filteredCafes.length > 0" class="cafe-grid">
+        <CafeCard 
+          v-for="cafe in filteredCafes" 
+          :key="cafe.id"
+          :cafe="cafe" 
+        />
+      </div>
+
+      <!-- Message si aucun café -->
+      <div v-else class="empty-state">
+        <span class="empty-state__icon">{{ category.icon }}</span>
+        <h3 class="empty-state__title">
+          {{ t('noResults') }}
+        </h3>
+        <p class="empty-state__text">
+          {{ t('tryModifySearch') }}
+        </p>
+        <NuxtLink @click="clearSearch" class="btn-primary">
+          {{ t('back') }} {{ category.name }}
+        </NuxtLink>
+      </div>
+    </template>
   </div>
 </template>
 
@@ -91,6 +107,18 @@ function clearSearch() {
   background: $color-background;
   display: flex;
   flex-direction: column;
+}
+
+.loading-state,
+.error-state {
+  @include flex-center;
+  flex: 1;
+  padding: 2rem;
+  font-size: 1.2rem;
+}
+
+.error-state {
+  color: red;
 }
 
 // === HEADER (stats + recherche) ===

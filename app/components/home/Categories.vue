@@ -1,8 +1,10 @@
 <script setup>
-  import { useCategoriesStore } from '~/stores/categories'
+const { categories, fetchCategories } = useCategories()
 
-  const categoriesStore = useCategoriesStore()
-  const categories = computed(() => categoriesStore.allCategories)
+// Charger les catégories si pas encore fait
+if (categories.value.length === 0) {
+  await fetchCategories()
+}
 </script>
 
 <template>
@@ -14,21 +16,19 @@
         :to="`/categories/${cat.slug}`"
         class="category-card"
       >
-        <p class="name-ja">{{ cat.name_ja}}</p>
+        <p class="name-ja">{{ cat.name_ja }}</p>
       </NuxtLink>
     </ul>
   </nav>
 </template>
 
 <style scoped lang="scss">
-
 nav{
   @include flex-center;
   flex-direction: column;
   background: white;
   height: 40vh;
   width: 100%;
-
   ul{
     display: flex;
     justify-content: center;
@@ -45,16 +45,13 @@ nav{
       text-decoration: none;
       color: $color-blue-dark;
       transition: color 0.9s ease;
-
       &:hover {
         color: $color-gold-light;
       }
-
       &.router-link-active {
         color: $color-gold;
         font-weight: 600;
       }
-
       .name-ja{
         font-family: $font-zen; 
         font-size: 20px;
@@ -78,17 +75,4 @@ nav{
     background: $color-text-light;
   }
 }
-
 </style>
-
-```
-Contenu :
-  → Kissaten
-  → Junseikissaten
-  → Third Wave
-  → Coffee Stand
-  → Ochaya
-  → Book Cafe
-  → Gallery Cafe
-- Chaque carte cliquable → /categories/{slug}
-```
