@@ -1,4 +1,4 @@
-import { getFavoritesByUserId } from '../../../utils/mockFavorites'
+import { findUserById } from '../../../utils/mockUsers'
 import { getCafeById } from '../../../utils/mockCafes'
 
 export default defineEventHandler((event) => {
@@ -12,17 +12,35 @@ export default defineEventHandler((event) => {
     })
   }
   
+  // Trouver l'user
+  const user = findUserById(Number(userId))
+  
+  if (!user) {
+    throw createError({
+      statusCode: 404,
+      message: 'Utilisateur introuvable'
+    })
+  }
+  
   // Paramètres
   const type = (query.type as 'koi' | 'super-koi' | 'all') || 'all'
   const page = Number(query.page) || 1
   const limit = Number(query.limit) || 20
   
-  // Récupérer les favoris
-  const userFavorites = getFavoritesByUserId(Number(userId), type)
+  // Récupérer les IDs selon le type
+  let cafeIds: number[] = []
   
-  // Récupérer les cafés correspondants
-  const cafes = userFavorites
-    .map(fav => getCafeById(fav.cafe_id))
+  if (type === 'koi') {
+    cafeIds = user.koi_ids
+  } else if (type === 'super-koi') {
+    cafeIds = user.super_koi_ids
+  } else {
+    cafeIds = [...user.koi_ids, ...user.super_koi_ids]
+  }
+  
+  // Récupérer les cafés
+  const cafes = cafeIds
+    .map(id => getCafeById(id))
     .filter(cafe => cafe !== undefined)
   
   // Pagination
@@ -38,6 +56,11 @@ export default defineEventHandler((event) => {
       limit,
       total,
       totalPages
+    },
+    meta: {
+      koi_count: user.koi_ids.length,
+      super_koi_count: user.super_koi_ids.length,
+      super_koi_remaining: 3 - user.super_koi_ids.length
     }
   }
 })

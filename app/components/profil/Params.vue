@@ -49,3 +49,8 @@
   }
 
 </style>
+
+
+twemoji:flag-japan
+twemoji:flag-france
+twemoji:flag-england

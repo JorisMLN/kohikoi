@@ -11,7 +11,11 @@ const { user, logout } = useAuth()
 <template>
   <div class="profile-page">
     <div class="profile-container">
-      <h1 class="profile-title">Mon Profil</h1>
+      <div class="profile-container__header">
+        <h1 class="profile-title">Mon Profil</h1>
+        <Params />
+      </div>
+      
       
       <div v-if="user" class="profile-info">
         <div class="profile-info__item">
@@ -35,7 +39,6 @@ const { user, logout } = useAuth()
       </div>
     </div>
     
-    <Params />
   </div>
 </template>
 
@@ -49,6 +52,14 @@ const { user, logout } = useAuth()
 .profile-container {
   max-width: 800px;
   margin: 0 auto;
+
+  &__header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 50px;
+    padding: 5px;
+  }
 }
 
 .profile-title {

@@ -3,7 +3,7 @@ const { homeContent, loading, error } = useHome()
 </script>
 
 <template>
-  <article>
+  <article id="about-section">
     <div v-if="loading">Chargement...</div>
     <div v-else-if="error">{{ error }}</div>
     <template v-else-if="homeContent">
