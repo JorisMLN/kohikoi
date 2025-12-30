@@ -1,5 +1,3 @@
-type Locale = 'fr' | 'en' | 'ja'
-
 interface CategoryDescription {
   slug: string
   descriptions: {

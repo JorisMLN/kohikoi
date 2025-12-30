@@ -19,6 +19,14 @@ if (categories.value.length === 0) {
         <p class="name-ja">{{ cat.name_ja }}</p>
       </NuxtLink>
     </ul>
+      <NuxtLink 
+        :to="`/map`"
+      >
+        <p class="name-ja">Map</p>
+      </NuxtLink>
+    <div>
+
+    </div>
   </nav>
 </template>
 
